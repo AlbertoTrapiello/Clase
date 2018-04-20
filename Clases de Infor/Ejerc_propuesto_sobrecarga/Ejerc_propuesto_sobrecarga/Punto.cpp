@@ -28,13 +28,59 @@ Punto Punto::operator+(double k)
 	return res;
 }
 
-Punto operator + (const Punto a, const Punto & b)
+/*string Punto::to_string()
+{
+	stringstream sstr;//saben convetir todo a flujo 
+	sstr << "[" << this->x << "] [" << this->y << "]" << endl;
+	string res(sstr.str);//constructor copia 
+
+	return string();
+}*/
+
+bool Punto::is_valid()
+{
+	//código de validación del protocolo...
+	return false;
+}
+
+Punto & Punto::operator+=(const Punto & rhs)
+{
+	// TODO: insertar una instrucción return aquí
+	this->x += rhs.x;
+	this->y += rhs.y;
+	return *this;
+}
+
+double Punto::modulo() const
+{
+
+	return sqrt(this->x*this->x+this->y*this->y);
+}
+
+/*Punto operator + (const Punto a, const Punto & b)
 {
 	Punto res(a);
 	res.x += b.x;
 	res.y += b.y;
 	return res;
 }
+*/
 
 
+bool is_valid()
+{
+	return 1;
+}
+Punto& Punto::operator ++()
+{
+	this->x++;
+	this->y++;
+	return *this;
+}
 
+Punto Punto::operator ++(int)
+{
+	Punto tmp(*this);
+	operator++();
+	return tmp;
+}
